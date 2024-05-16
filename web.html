@@ -78,7 +78,42 @@
         <!-- Calculator content -->
         <div class="calculator">
             <h2>Calculator</h2>
-            <p>Add your calculator content here.</p>
+            
+<script>
+    function calculateCO2() {
+        var distance = parseFloat(document.getElementById("distance").value);
+        var fuelType = document.getElementById("fuel").value;
+        var mpg = parseFloat(document.getElementById("mpg").value);
+    
+        if (isNaN(distance) || distance <= 0) {
+            alert("Please enter a valid distance.");
+            return;
+        }
+    
+        var co2PerKmPetrol = 2.31; // CO2 emissions per km for petrol in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
+        var co2PerKmDiesel = 2.68; // CO2 emissions per km for diesel in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
+    
+        if (fuelType === "petrol") {
+            if (mpg) {
+                var gallonsUsed = distance / mpg;
+                var litresUsed = gallonsUsed * 4.54609; // Conversion from gallons to litres
+                var co2 = litresUsed * co2PerKmPetrol; // CO2 emissions for petrol in kg
+            } else {
+                var co2 = distance * co2PerKmPetrol;
+            }
+        } else if (fuelType === "diesel") {
+            if (mpg) {
+                var gallonsUsed = distance / mpg;
+                var litresUsed = gallonsUsed * 4.54609; // Conversion from gallons to litres
+                var co2 = litresUsed * co2PerKmDiesel; // CO2 emissions for diesel in kg
+            } else {
+                var co2 = distance * co2PerKmDiesel;
+            }
+        }
+    
+        document.getElementById("result").innerText = "CO2 emissions: " + co2.toFixed(2) + " kg";
+    }
+    </script>
         </div>
     </div>
 
