@@ -93,9 +93,22 @@
             <button onclick="calculateCO2()">Calculate CO2</button>
             <br>
             <div id="result"></div>
+
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+            });
+            document.getElementById(tabId).style.display = 'block';
+        }
         
-<script>
-    function calculateCO2() {
+        // Show the "Home" tab by default
+        showTab('home');
+        function calculateCO2() {
         var distance = parseFloat(document.getElementById("distance").value);
         var fuelType = document.getElementById("fuel").value;
         var mpg = parseFloat(document.getElementById("mpg").value);
@@ -128,22 +141,7 @@
     
         document.getElementById("result").innerText = "CO2 emissions: " + co2.toFixed(2) + " kg";
     }
-    </script>
-        </div>
-    </div>
-
-    <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.style.display = 'none';
-            });
-            document.getElementById(tabId).style.display = 'block';
-        }
-        
-        // Show the "Home" tab by default
-        showTab('home');
-    </script>
+  </script>
 </body>
 
 </html>
