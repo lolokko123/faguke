@@ -74,41 +74,42 @@
 </div>
 
 
-    <div class="page-content tab-content" id="calculator">
-        <!-- Calculator content -->
-        <div class="calculator">
-            <h2>Calculator</h2>
-            <label for="distance">Distance (km):</label>
-            <input type="number" id="distance" min="0">
-            <br>
-            <label for="fuel">Fuel type:</label>
-            <select id="fuel">
-                <option value="petrol">Petrol</option>
-                <option value="diesel">Diesel</option>
-            </select>
-            <br>
-            <label for="mpg">Miles per gallon (if applicable):</label>
-            <input type="number" id="mpg" min="0">
-            <br>
-            <button onclick="calculateCO2()">Calculate CO2</button>
-            <br>
-            <div id="result"></div>
+<div class="page-content tab-content" id="calculator">
+    <!-- Calculator content -->
+    <div class="calculator">
+        <h2>Calculator</h2>
+        <label for="distance">Distance (km):</label>
+        <input type="number" id="distance" min="0">
+        <br>
+        <label for="fuel">Fuel type:</label>
+        <select id="fuel">
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+        </select>
+        <br>
+        <label for="mpg">Miles per gallon (if applicable):</label>
+        <input type="number" id="mpg" min="0">
+        <br>
+        <button onclick="calculateCO2()">Calculate CO2</button>
+        <br>
+        <div id="result"></div>
 
-        </div>
     </div>
+</div>
 
-    <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.style.display = 'none';
-            });
-            document.getElementById(tabId).style.display = 'block';
-        }
-        
-        // Show the "Home" tab by default
-        showTab('home');
-        function calculateCO2() {
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        document.getElementById(tabId).style.display = 'block';
+    }
+    
+    // Show the "Home" tab by default
+    showTab('home');
+    
+    function calculateCO2() {
         var distance = parseFloat(document.getElementById("distance").value);
         var fuelType = document.getElementById("fuel").value;
         var mpg = parseFloat(document.getElementById("mpg").value);
@@ -141,7 +142,7 @@
     
         document.getElementById("result").innerText = "CO2 emissions: " + co2.toFixed(2) + " kg";
     }
-  </script>
+</script>
 </body>
 
 </html>
