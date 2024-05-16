@@ -77,15 +77,10 @@
 <div class="page-content tab-content" id="calculator">
     <!-- Calculator content -->
     <div class="calculator">
-        <h2>Calculator</h2>
-        <label for="distance">Distance (km):</label>
-        <input type="number" id="distance" min="0">
-        <br>
-        <label for="mpg">Miles per gallon (if applicable):</label>
-        <input type="number" id="mpg" min="0">
-        <br>
-        <button onclick="calculateCO2()">Calculate CO2</button>
-        <br>
+        <p>Kjøredistanse (km):</p>
+        <input type="number" name="KDKM" oninput="co21()"><br>
+        <input type="number" name="BPKG" oninput="co21()"><br>
+        <p>Utslipp i kg:</p>
         <input type="number" name="output1" disabled>
 
     </div>
