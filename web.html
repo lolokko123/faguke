@@ -81,18 +81,12 @@
         <label for="distance">Distance (km):</label>
         <input type="number" id="distance" min="0">
         <br>
-        <label for="fuel">Fuel type:</label>
-        <select id="fuel">
-            <option value="petrol">Petrol</option>
-            <option value="diesel">Diesel</option>
-        </select>
-        <br>
         <label for="mpg">Miles per gallon (if applicable):</label>
         <input type="number" id="mpg" min="0">
         <br>
         <button onclick="calculateCO2()">Calculate CO2</button>
         <br>
-        <div id="result"></div>
+        <div id="output1"></div>
 
     </div>
 </div>
@@ -109,11 +103,13 @@
     // Show the "Home" tab by default
     showTab('home');
     
-    function calculateCO2() {
-        var distance = parseFloat(document.getElementById("distance").value);
-        var fuelType = document.getElementById("fuel").value;
-        var mpg = parseFloat(document.getElementById("mpg").value);
-    
+    function co21() {
+                let kmk = document.querySelector('input[name="KDKM"]').value;
+                let bpg = document.querySelector('input[name="BPKG"]').value;
+                let op1 = kmk * bpg / 1000;
+                document.querySelector('input[name="output1"]').value = op1;
+            }
+
         if (isNaN(distance) || distance <= 0) {
             alert("Please enter a valid distance.");
             return;
@@ -122,26 +118,10 @@
         var co2PerKmPetrol = 2.31; // CO2 emissions per km for petrol in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
         var co2PerKmDiesel = 2.68; // CO2 emissions per km for diesel in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
     
-        if (fuelType === "petrol") {
-            if (mpg) {
-                var gallonsUsed = distance / mpg;
-                var litresUsed = gallonsUsed * 4.54609; // Conversion from gallons to litres
-                var co2 = litresUsed * co2PerKmPetrol; // CO2 emissions for petrol in kg
-            } else {
-                var co2 = distance * co2PerKmPetrol;
-            }
-        } else if (fuelType === "diesel") {
-            if (mpg) {
-                var gallonsUsed = distance / mpg;
-                var litresUsed = gallonsUsed * 4.54609; // Conversion from gallons to litres
-                var co2 = litresUsed * co2PerKmDiesel; // CO2 emissions for diesel in kg
-            } else {
-                var co2 = distance * co2PerKmDiesel;
-            }
-        }
+
     
         document.getElementById("result").innerText = "CO2 emissions: " + co2.toFixed(2) + " kg";
-    }
+    
 </script>
 </body>
 
