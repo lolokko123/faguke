@@ -73,51 +73,6 @@
 <p>Bygging av nye datasentre krever ofte store landarealer. Dette kan føre til tap av naturområder, habitatfragmentering og en reduksjon i biologisk mangfold.</p>
 </div>
 
-
-<div class="page-content tab-content" id="calculator">
-    <!-- Calculator content -->
-    <div class="calculator">
-        <p>Kjøredistanse (km):</p>
-        <input type="number" name="KDKM" oninput="co21()"><br>
-        <input type="number" name="BPKG" oninput="co21()"><br>
-        <p>Utslipp i kg:</p>
-        <input type="number" name="output1" disabled>
-
-    </div>
-</div>
-
-<script>
-    function showTab(tabId) {
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => {
-            tab.style.display = 'none';
-        });
-        document.getElementById(tabId).style.display = 'block';
-    }
-    
-    // Show the "Home" tab by default
-    showTab('home');
-    
-    function co21() {
-                let kmk = document.querySelector('input[name="KDKM"]').value;
-                let bpg = document.querySelector('input[name="BPKG"]').value;
-                let op1 = kmk * bpg / 1000;
-                document.querySelector('input[name="output1"]').value = op1;
-            }
-
-        if (isNaN(distance) || distance <= 0) {
-            alert("Please enter a valid distance.");
-            return;
-        }
-    
-    //    var co2PerKmPetrol = 2.31;  CO2 emissions per km for petrol in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
-    //    var co2PerKmDiesel = 2.68;  CO2 emissions per km for diesel in kg (source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)//
-    
-
-    
-       // document.getElementById("result").innerText = "CO2 emissions: " + co2.toFixed(2) + " kg"; //
-    
-</script>
 </body>
 
 </html>
